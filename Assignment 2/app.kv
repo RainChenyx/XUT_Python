@@ -1,0 +1,75 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.3
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: 0.2
+                Label:
+                    text: 'Sort by:'
+                Spinner:
+                    id: spinner
+                    text: app.sort_by
+                    values: app.SORT_KEYS
+                    on_text: app.press_sort(self.text)
+            BoxLayout:
+                id: inputs
+                orientation: 'vertical'
+                size_hint_y: 0.8
+                Label:
+                    text: 'Add New Song...'
+                    size_hint_y: None
+                Label:
+                    text: 'Title:'
+                    size_hint_y: None
+                    height: '48dp'
+                TextInput:
+                    id: added_title
+                    value: ''
+                    size_hint_y: None
+                    height: '48dp'
+                    multiline: False
+                    write_tab: False
+                Label:
+                    text: 'Artist:'
+                    size_hint_y: None
+                    height: '48dp'
+                TextInput:
+                    id: added_artist
+                    value: ''
+                    size_hint_y: None
+                    height: '48dp'
+                    multiline: False
+                    write_tab: False
+                Label:
+                    text: 'Year:'
+                    size_hint_y: None
+                    height: '48dp'
+                TextInput:
+                    id: added_year
+                    value: ''
+                    size_hint_y: None
+                    height: '48dp'
+                    multiline: False
+                    write_tab: False
+                Button:
+                    text: 'Add Song'
+                    on_release: app.press_add(added_title.text, added_artist.text, added_year.text)
+                Button:
+                    text: 'Clear'
+                    on_press: app.handle_clear()
+        BoxLayout:
+            orientation: 'vertical'
+            Label:
+                text: app.total_text
+                size_hint_y: 0.1
+            BoxLayout:
+                # this layout is populated with buttons in app code
+                orientation: 'vertical'
+                id: songs_box
+            Label:
+                size_hint_y: 0.1
+                text: app.status_text
