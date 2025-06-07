@@ -1,0 +1,5 @@
+46 is Bad
+45 is Bad
+85 is Passable
+95 is Excellent
+8 is Bad
